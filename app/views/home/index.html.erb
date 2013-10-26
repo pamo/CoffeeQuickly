@@ -79,6 +79,7 @@
           }
         });
       }
+     function twilio() {console.log("Called!!!!"); $.ajax({url: "home/send_text", type: "POST"})}
     
   </script>
   </head>
@@ -91,7 +92,9 @@
       </div>
       <div id="middlewrapper">
         <div id="leftcolumnwrap">
-          <div id="leftcolumn"></div>
+          <div id="leftcolumn">
+            <input type="button" value="Send text" onclick="twilio()" />
+          </div>
         </div>
         <div id="contentwrap">
           <div id="content">

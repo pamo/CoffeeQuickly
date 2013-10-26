@@ -17,6 +17,7 @@
 
 # API Keys
 config/foursquare.yml
+config/twilio.yml
 
 ### Ruby ###
 *.gem

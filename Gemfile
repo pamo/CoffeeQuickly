@@ -46,3 +46,5 @@ gem 'foursquare2'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'twilio-ruby'
