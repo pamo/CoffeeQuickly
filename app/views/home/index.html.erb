@@ -33,7 +33,7 @@
         directionsService = new google.maps.DirectionsService();
         directionsDisplay = new google.maps.DirectionsRenderer();
         directionsDisplay.setMap(map);
-        directionsDisplay.setPanel(document.getElementById('map-directions'));
+        directionsDisplay.setPanel(document.getElementById("leftcolumn"));
        
         <% @coffee_venues.each do |i| %>
             google.maps.event.addListener(
@@ -93,9 +93,7 @@
       </div>
       <div id="middlewrapper">
         <div id="leftcolumnwrap">
-          <div id="leftcolumn">
-            Left side
-          </div>
+          <div id="leftcolumn"></div>
         </div>
         <div id="contentwrap">
           <div id="content">
@@ -105,7 +103,7 @@
       </div>
       <div id="footerwrap">
         <div id="footer">
-            <p>This is the Footer</p>
+            Get your java[script] in 24 hours or less!
         </div>
       </div>
     </div>
