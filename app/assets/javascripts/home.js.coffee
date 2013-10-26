@@ -1,3 +1,8 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+  window.load_google_map = (lat, lng) ->
+    myLatlng = new google.maps.LatLng(lat, lng)
+    myOptions =
+      zoom: 14
+      center: myLatlng
+      mapTypeId: google.maps.MapTypeId.ROADMAP      
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions)
