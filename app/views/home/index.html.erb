@@ -20,7 +20,8 @@
     <script type="text/javascript">
 
      var directionsDisplay,
-        directionsService;
+        directionsService,
+        lastAddress;
 
       function initialize() {
         var mapOptions = {
@@ -66,6 +67,7 @@
 
       function goClick(target) {
         calcRoute("<%= @lat %>,<%= @long %>", $(target).attr('data'));
+
       }
 
       function calcRoute(start, end) {
@@ -78,10 +80,15 @@
         directionsService.route(request, function(result, status) {
           if (status == google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(result);
+            lastAddress = result.routes[0].legs[0].end_address;
           }
         });
       }
-     function twilio() {console.log("Called!!!!"); $.ajax({url: "home/send_text", type: "POST"})}
+    function twilio() {
+        //var data = $('form#sendtext').serialize();
+        var moby = $('#moby').attr('value');
+        $.ajax({url: "home/send_text", type: "POST", data: {mobile: moby, lastAddress: lastAddress}});
+    }
     
   </script>
   </head>
@@ -95,7 +102,10 @@
       <div id="middlewrapper">
         <div id="leftcolumnwrap">
           <div id="leftcolumn">
-            <input type="button" value="Send text" onclick="twilio()" />
+            <form id="sendtext">
+                <input type="text" id="moby" name="mobile" value="16305320064" />
+                <input type="button" value="Send text" onclick="twilio()" />
+            </form>
           </div>
         </div>
         <div id="contentwrap">

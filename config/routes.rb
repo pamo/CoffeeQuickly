@@ -1,7 +1,7 @@
 CoffeeQuickly::Application.routes.draw do
   get "home/index"
   root "home#index"
-  post 'home/send_text', :to => 'home#index'
+  post 'home/send_text', :to => 'home#send_text'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -9,6 +9,7 @@ class HomeController < ApplicationController
       client = Foursquare2::Client.new(:client_id => ENV["client_id"], :client_secret => ENV["client_secret"])
       search = client.search_venues(:ll => "#{@lat},#{@long}", :query => 'coffee', :sortByDistance =>'1' )
       @coffee_venues = search.groups[0].items
+      puts "hellfeajkfleajfejakfjeajkl"
       @coffee_venues.each do |v|
       	v.distance = v.location.distance * 0.00062137
       	v.distance = v.distance.round(3)
@@ -30,8 +31,9 @@ class HomeController < ApplicationController
     @twilio_client = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])
     @twilio_client.account.sms.messages.create(
       from: TWILIO_CONFIG['from'],
-      to: '16305320064',
-      body: "RECEIVED! #{Time.now}"
+      to: params[:mobile],
+      body: "http://mapof.it/\"#{params[:lastAddress]}\" RECEIVED! #{Time.now}"
     )
+    redirect_to "/"
   end
 end
