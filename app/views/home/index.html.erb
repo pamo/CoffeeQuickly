@@ -12,6 +12,10 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0hS0Z0_OvGJzYwa6BM07e0CT4BMlQT0o&sensor=false">
     </script>
     <script type="text/javascript">
+
+     var directionsDisplay,
+        directionsService = new google.maps.DirectionsService();
+
       function initialize() {
         var mapOptions = {
           center: new google.maps.LatLng(<%= @lat %>, <%= @long %>),
@@ -20,8 +24,26 @@
         };
         var map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
+        directionsDisplay = new google.maps.DirectionsRenderer();
+        directionsDisplay.setMap(map);
+        calcRoute();
       }
       google.maps.event.addDomListener(window, 'load', initialize);
+
+      function calcRoute(start, end) {
+        var start = "2029 Stierlin Court, Mountain View";
+        var end = "280 Easy St. Mountain View";
+        var request = {
+         origin:start,
+         destination:end,
+         travelMode: google.maps.TravelMode.DRIVING
+      };
+      directionsService.route(request, function(result, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+          directionsDisplay.setDirections(result);
+        }
+      });
+   }
     </script>
   </head>
   <body>
