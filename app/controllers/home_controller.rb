@@ -11,13 +11,13 @@ class HomeController < ApplicationController
       @coffee_venues.each do |v|
       	v.distance = v.location.distance * 0.00062137
       	v.distance = v.distance.round(3)
-      	# puts v.categories.first.name unless v.categories.first.nil?
       	v.here = client.herenow(v.id).hereNow["count"]
+      	
       	all_photos = client.venue(v.id).photos.groups[1]
 		photos = all_photos.items unless all_photos.nil?
-		photos.each { |p| v.photo = p.sizes.items.last.url } unless photos.nil?		
+		photos.each { |p| v.photo = p.sizes.items[-2].url } unless photos.nil?		
 
-		if v.here <= 2 
+		if v.here < 2 
       		v.icon = "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
       	else
       		v.icon = "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
