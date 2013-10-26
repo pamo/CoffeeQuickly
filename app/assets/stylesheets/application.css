@@ -11,3 +11,96 @@
  *= require_self
  *= require_tree .
  */
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color:#333;
+    background-color:#FFCC99
+}
+
+p {
+    padding: 10px;
+}
+
+#wrapper {
+    margin: 0 auto;
+    width: 800px;
+}
+
+#headerwrap {
+    width: 800px;
+    float: left;
+    margin: 0 auto;
+}
+
+#header {
+    height: 90px;
+    background: #633118;
+    border-radius: 10px;
+    border: 1px solid #4f1d04;
+    margin: 5px;
+}
+
+#contentwrap {
+    width: 525px;
+    height: 525px;
+    float: left;
+    margin: 0 auto;
+}
+
+#content {
+    background: #C27C3E;
+    border-radius: 10px;
+    border: 1px solid #ae682a;
+    margin: 5px;
+}
+
+#leftcolumnwrap {
+    width: 275px;
+    height: 500px;
+    float: left;
+    margin: 0 auto;
+}
+
+#leftcolumn {
+    background: #C27C3E;
+    border-radius: 10px;
+    border: 1px solid #ae682a;
+    margin: 5px;
+    height: 500px;
+}
+
+#rightcolumnwrap {
+    width: 150px;
+    float: left;
+    margin: 0 auto;
+}
+
+#rightcolumn {
+    background: #C27C3E;
+    border-radius: 10px;
+    border: 1px solid #ae682a;
+    margin: 5px;
+}
+
+#footerwrap {
+    width: 800px;
+    float: left;
+    margin: 0 auto;
+    clear: both;
+}
+
+#footer {
+    height: 40px;
+    background: #633118;
+    border-radius: 10px;
+    border: 1px solid #4f1d04;
+    margin: 5px;
+}
+
+#bannerphoto {
+  align: center;
+}
+
+#middlewrapper {
+}

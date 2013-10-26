@@ -10,8 +10,8 @@
           margin-left: auto;
           margin-right: auto;}
       #map-canvas {
-          width: 90%;
-          height: 80%; 
+          width: 500px;
+          height: 500px;
           margin-left: auto;
           margin-right: auto;}
       #panel {
@@ -85,9 +85,29 @@
   </script>
   </head>
   <body>
-    <div id="header">Enter your address<input type="text"></div>
-    <div id="map-directions"></div>
-    <div id="map-canvas"/>
-    <div id="footer">Directions go here?</div>
+    <div id="wrapper">
+      <div id="headerwrap">
+        <div id="header">
+          <%= image_tag "banner.png", :class => "bannerphoto" %>
+        </div>
+      </div>
+      <div id="middlewrapper">
+        <div id="leftcolumnwrap">
+          <div id="leftcolumn">
+            Left side
+          </div>
+        </div>
+        <div id="contentwrap">
+          <div id="content">
+            <div id="map-canvas"/>
+          </div>
+        </div>
+      </div>
+      <div id="footerwrap">
+        <div id="footer">
+            <p>This is the Footer</p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
