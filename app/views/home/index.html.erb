@@ -14,6 +14,8 @@
           height: 80%; 
           margin-left: auto;
           margin-right: auto;}
+      #panel {
+        }
     </style>
     <script type="text/javascript">
 
@@ -31,7 +33,7 @@
         directionsService = new google.maps.DirectionsService();
         directionsDisplay = new google.maps.DirectionsRenderer();
         directionsDisplay.setMap(map);
-      
+        directionsDisplay.setPanel(document.getElementById('map-directions'));
        
         <% @coffee_venues.each do |i| %>
             google.maps.event.addListener(
@@ -61,7 +63,7 @@
         var request = {
            origin:start,
            destination:end,
-           travelMode: google.maps.TravelMode.DRIVING
+           travelMode: google.maps.TravelMode.WALKING
         };
 
         directionsService.route(request, function(result, status) {
@@ -75,8 +77,8 @@
   </head>
   <body>
     <div id="header">Enter your address<input type="text"></div>
+    <div id="map-directions"></div>
     <div id="map-canvas"/>
-        
     <div id="footer">Directions go here?</div>
   </body>
 </html>
