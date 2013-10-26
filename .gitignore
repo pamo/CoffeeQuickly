@@ -16,7 +16,7 @@
 /tmp
 
 # API Keys
-foursquare.yml
+config/foursquare.yml
 
 ### Ruby ###
 *.gem

@@ -8,6 +8,12 @@ Bundler.require(:default, Rails.env)
 
 module CoffeeQuickly
   class Application < Rails::Application
+      config.before_configuration do
+          env_file = File.join(Rails.root, 'config', 'foursquare.yml')
+          YAML.load(File.open(env_file)).each do |key, value|
+              ENV[key.to_s] = value
+          end if File.exists?(env_file)
+      end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -19,5 +25,13 @@ module CoffeeQuickly
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+      #     YAML.load(
+      #         ENV[
+      #           end if File.exists?(
+      #           end
+  end
+          YAML.load(
+                  ENV[
+                    end if File.exists?(
   end
 end
