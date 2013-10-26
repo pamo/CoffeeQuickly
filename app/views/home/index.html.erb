@@ -44,7 +44,7 @@
             'click', function() {
               
                 new google.maps.InfoWindow({
-                    content: "<b><%= i.name %></b> (<%= i.distance %> mi away)<br>Here Now: <%= i.count %><br><input onclick='goClick(this)' type='button' data='(<%= i.location.lat %>,<%= i.location.lng %>)' value='Go here'/>"
+                    content: "<b><%= i.name %></b> (<%= i.distance %> mi away)<br>Here Now: <%= i.here %><br><input onclick='goClick(this)' type='button' data='(<%= i.location.lat %>,<%= i.location.lng %>)' value='Go here'/>"
                 }).open(map,new google.maps.Marker({
                     position: new google.maps.LatLng(<%= i.location.lat %>,<%= i.location.lng %>),
                     map: map,

@@ -33,6 +33,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'oauth2'
 gem 'foursquare2'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

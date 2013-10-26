@@ -9,7 +9,9 @@ class HomeController < ApplicationController
       	v.distance = v.location.distance * 0.00062137
       	v.distance = v.distance.round(3)
       	puts v.categories.first.name unless v.categories.first.nil?
-      	if v.count <= 9 
+      	v.here = client.herenow(v.id).hereNow["count"]
+      	puts v.here
+      	if v.here <= 0 
       		v.icon = "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
       	else
       		v.icon = "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
