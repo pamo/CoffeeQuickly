@@ -96,10 +96,13 @@ p {
     border-radius: 10px;
     border: 1px solid #4f1d04;
     margin: 5px;
+    padding-top: 10px;
+    color: #000;
+    font-size: 20px;
+    text-align: center;
 }
 
 #bannerphoto {
-  align: center;
 }
 
 #middlewrapper {
