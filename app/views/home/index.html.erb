@@ -11,7 +11,7 @@
           margin-right: auto;}
       #map-canvas {
           width: 500px;
-          height: 100%; 
+          height: 500px;
           margin-left: auto;
           margin-right: auto;}
     </style>
@@ -78,9 +78,29 @@
   </script>
   </head>
   <body>
-    <div id="header">This is hte header</div>
-    <div id="map-canvas"/>
-        
-    <div id="footer">This is the footer</div>
+    <div id="wrapper">
+      <div id="headerwrap">
+        <div id="header">
+          <%= image_tag "banner.png", :class => "bannerphoto" %>
+        </div>
+      </div>
+      <div id="middlewrapper">
+        <div id="leftcolumnwrap">
+          <div id="leftcolumn">
+            Left side
+          </div>
+        </div>
+        <div id="contentwrap">
+          <div id="content">
+            <div id="map-canvas"/>
+          </div>
+        </div>
+      </div>
+      <div id="footerwrap">
+        <div id="footer">
+            <p>This is the Footer</p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
