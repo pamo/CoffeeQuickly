@@ -6,3 +6,4 @@ $ ->
       center: myLatlng
       mapTypeId: google.maps.MapTypeId.ROADMAP      
     map = new google.maps.Map(document.getElementById("map_canvas"), myOptions)
+
