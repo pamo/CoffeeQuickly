@@ -93,7 +93,8 @@
       <div id="middlewrapper">
         <div id="leftcolumnwrap">
           <div id="leftcolumn">
-            <input type="button" value="Send text" onclick="twilio()" />
+            <%= button_to 'Send Text', {:controller => "home", :action => "send_text"} , :method=>:post  %>
+            <!--<input type="button" value="Send text" onclick="twilio()" />-->
           </div>
         </div>
         <div id="contentwrap">

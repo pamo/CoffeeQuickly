@@ -33,5 +33,6 @@ class HomeController < ApplicationController
       to: '16305320064',
       body: "RECEIVED! #{Time.now}"
     )
+    render action: "index"
   end
 end
