@@ -10,25 +10,25 @@
           margin-left: auto;
           margin-right: auto;}
       #map-canvas {
-          width: 500px;
-          height: 100%; 
+          width: 90%;
+          height: 80%; 
           margin-left: auto;
           margin-right: auto;}
     </style>
     <script type="text/javascript">
 
      var directionsDisplay,
-        directionsService = new google.maps.DirectionsService();
+        directionsService;
 
       function initialize() {
         var mapOptions = {
           center: new google.maps.LatLng(<%= @lat %>, <%= @long %>),
-          zoom: 10,
+          zoom: 15,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-
+        directionsService = new google.maps.DirectionsService();
         directionsDisplay = new google.maps.DirectionsRenderer();
         directionsDisplay.setMap(map);
       
@@ -54,7 +54,7 @@
 
       google.maps.event.addDomListener(window, 'load', initialize);
       function goClick(target) {
-        calcRoute("2051 Stierlin Ct. Mountain View California", $(target).attr('data'));
+        calcRoute("<%= @lat %>,<%= @long %>", $(target).attr('data'));
       }
 
       function calcRoute(start, end) {
@@ -74,9 +74,9 @@
   </script>
   </head>
   <body>
-    <div id="header">This is hte header</div>
+    <div id="header">Enter your address<input type="text"></div>
     <div id="map-canvas"/>
         
-    <div id="footer">This is the footer</div>
+    <div id="footer">Directions go here?</div>
   </body>
 </html>
