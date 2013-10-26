@@ -36,16 +36,19 @@
         <% @coffee_venues.each do |i| %>
             google.maps.event.addListener(
                new google.maps.Marker({
-                             position: new google.maps.LatLng(<%= i.location.lat %>,<%= i.location.lng %>),
+                            position: new google.maps.LatLng(<%= i.location.lat %>,<%= i.location.lng %>),
                             map: map,
+                            icon: "<%= i.icon %>",
                             title: "<%= i.name %>"
             }), 
             'click', function() {
+              
                 new google.maps.InfoWindow({
                     content: "<b><%= i.name %></b><br>Here Now: <%= i.count %><br><input onclick='goClick(this)' type='button' data='(<%= i.location.lat %>,<%= i.location.lng %>)' value='Go here'/>"
                 }).open(map,new google.maps.Marker({
                     position: new google.maps.LatLng(<%= i.location.lat %>,<%= i.location.lng %>),
                     map: map,
+                    icon: "<%= i.icon %>",
                     title: "<%= i.name %>"
                 }));
           });
@@ -53,6 +56,12 @@
       }
 
       google.maps.event.addDomListener(window, 'load', initialize);
+      
+      function cleanup(map) {
+        if (map) google.maps.event.clearListeners(map, 'click');
+        delete(map);
+      }
+
       function goClick(target) {
         calcRoute("<%= @lat %>,<%= @long %>", $(target).attr('data'));
       }
