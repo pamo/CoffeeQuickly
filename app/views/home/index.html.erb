@@ -25,7 +25,7 @@
       function initialize() {
         var mapOptions = {
           center: new google.maps.LatLng(<%= @lat %>, <%= @long %>),
-          zoom: 15,
+          zoom: 13,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
@@ -46,7 +46,7 @@
             'click', function() {
               
                 new google.maps.InfoWindow({
-                    content: "<b><%= i.name %></b><br>Here Now: <%= i.count %><br><input onclick='goClick(this)' type='button' data='(<%= i.location.lat %>,<%= i.location.lng %>)' value='Go here'/>"
+                    content: "<img src=<%= i.photo %>><br><b><%= i.name %></b><br> (<%= i.distance %> mi away)<br>Here Now: <%= i.here %><br><input onclick='goClick(this)' type='button' data='(<%= i.location.lat %>,<%= i.location.lng %>)' value='Go here'/>"
                 }).open(map,new google.maps.Marker({
                     position: new google.maps.LatLng(<%= i.location.lat %>,<%= i.location.lng %>),
                     map: map,
@@ -81,6 +81,7 @@
           }
         });
       }
+     function twilio() {console.log("Called!!!!"); $.ajax({url: "home/send_text", type: "POST"})}
     
   </script>
   </head>
@@ -93,7 +94,9 @@
       </div>
       <div id="middlewrapper">
         <div id="leftcolumnwrap">
-          <div id="leftcolumn"></div>
+          <div id="leftcolumn">
+            <input type="button" value="Send text" onclick="twilio()" />
+          </div>
         </div>
         <div id="contentwrap">
           <div id="content">
