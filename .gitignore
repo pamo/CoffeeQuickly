@@ -59,3 +59,8 @@ rerun.txt
 pickle-email-*.html
 .project
 !.keep
+
+### IntelliJ ###
+.idea
+.idea/*
+*.iml
